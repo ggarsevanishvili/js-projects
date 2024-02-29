@@ -1,57 +1,66 @@
-let firstOperand = Number(
-  prompt("ჩაწერეთ პირველი ოპერანდის რიცხვითი მნიშვნელობა")
-);
+let circle = Infinity;
 
-while (isNaN(firstOperand || undefined)) {
-  tryAgain = confirm(
-    "პირველი ოპერანდის მნიშვნელობა არ შეესაბამება რიცხვს, ჩაწერეთ მხოლოდ რიცხვები."
+while (circle === Infinity) {
+  let firstOperand = prompt("ჩაწერეთ პირველი ოპერანდის რიცხვითი მნიშვნელობა");
+  let firstNumber = parseFloat(firstOperand);
+  let tryAgain;
+
+  while (isNaN(firstOperand) || firstOperand.length < 1) {
+    tryAgain = confirm(
+      "პირველი ოპერანდის მნიშვნელობა არ შეესაბამება რიცხვს, ჩაწერეთ მხოლოდ რიცხვები."
+    );
+    firstOperand = prompt("ჩაწერეთ პირველი ოპერანდის რიცხვითი მნიშვნელობა");
+    firstNumber = parseFloat(firstOperand);
+  }
+
+  let operator = prompt(
+    "ჩაწერეთ ოპერაციის მნიშვნელობა. მაგ: +; -; *; /; %; **"
   );
-  firstOperand = Number(
-    prompt("ჩაწერეთ პირველი ოპერანდის რიცხვითი მნიშვნელობა")
-  );
-}
 
-let operator = prompt("ჩაწერეთ ოპერაციის მნიშვნელობა. მაგ: +; -; *; /; %; **");
+  while (
+    operator !== "+" &&
+    operator !== "-" &&
+    operator !== "*" &&
+    operator !== "/" &&
+    operator !== "%" &&
+    operator !== "**"
+  ) {
+    tryAgain = confirm("შეყვანილი ოპერაცია არასწორია! ჩაწერეთ სწორად");
+    operator = prompt("ჩაწერეთ ოპერაციის მნიშვნელობა. მაგ: +; -; *; /; %; **");
+  }
 
-while (
-  operator !== "+" &&
-  operator !== "-" &&
-  operator !== "*" &&
-  operator !== "/" &&
-  operator !== "%" &&
-  operator !== "**"
-) {
-  tryAgain = confirm("შეყვანილი ოპერაცია არასწორია! ჩაწერეთ სწორად");
-  operator = prompt("ჩაწერეთ ოპერაციის მნიშვნელობა. მაგ: +; -; *; /; %; **");
-}
+  let secondOperand = prompt("ჩაწერეთ მეორე ოპერანდის რიცხვითი მნიშვნელობა");
+  let secondNumber = parseFloat(secondOperand);
 
-let secondOperand = Number(
-  prompt("ჩაწერეთ მეორე ოპერანდის რიცხვითი მნიშვნელობა")
-);
+  while (isNaN(secondOperand) || secondOperand.length < 1) {
+    tryAgain = confirm(
+      "მეორე ოპერანდის მნიშვნელობა არ შეესაბამება რიცხვს, ჩაწერეთ მხოლოდ რიცხვები."
+    );
+    secondOperand = prompt("ჩაწერეთ მეორე ოპერანდის რიცხვითი მნიშვნელობა");
+    secondNumber = parseFloat(secondOperand);
+  }
 
-while (isNaN(secondOperand || undefined)) {
-  tryAgain = confirm(
-    "მეორე ოპერანდის მნიშვნელობა არ შეესაბამება რიცხვს, ჩაწერეთ მხოლოდ რიცხვები."
-  );
-  secondOperand = Number(
-    prompt("ჩაწერეთ მეორე ოპერანდის რიცხვითი მნიშვნელობა")
-  );
-}
+  if (operator === "+") {
+    alert(`${firstNumber} + ${secondNumber} = ${firstNumber + secondNumber}`);
+  } else if (operator === "-") {
+    alert(`${firstNumber} - ${secondNumber} = ${firstNumber - secondNumber}`);
+  } else if (operator === "*") {
+    alert(`${firstNumber} * ${secondNumber} = ${firstNumber * secondNumber}`);
+  } else if (operator === "/") {
+    alert(`${firstNumber} / ${secondNumber} = ${firstNumber / secondNumber}`);
+  } else if (operator === "%") {
+    alert(`${firstNumber} % ${secondNumber} = ${firstNumber % secondNumber}`);
+  } else if (operator === "**") {
+    alert(`${firstNumber} ** ${secondNumber} = ${firstNumber ** secondNumber}`);
+  } else {
+    alert("ფაფიქსირდა გაუთვალისწინებელი შემთხვევა!");
+  }
 
-if (operator === "+") {
-  alert(`${firstOperand} + ${secondOperand} = ${firstOperand + secondOperand}`);
-} else if (operator === "-") {
-  alert(`${firstOperand} - ${secondOperand} = ${firstOperand - secondOperand}`);
-} else if (operator === "*") {
-  alert(`${firstOperand} * ${secondOperand} = ${firstOperand * secondOperand}`);
-} else if (operator === "/") {
-  alert(`${firstOperand} / ${secondOperand} = ${firstOperand / secondOperand}`);
-} else if (operator === "%") {
-  alert(`${firstOperand} % ${secondOperand} = ${firstOperand % secondOperand}`);
-} else if (operator === "**") {
-  alert(
-    `${firstOperand} ** ${secondOperand} = ${firstOperand ** secondOperand}`
-  );
-} else {
-  alert("ფაფიქსირდა გაუთვალისწინებელი შემთხვევა!");
+  loop = confirm("გსურთ ხელახლა ცდა?");
+  {
+    if (!loop) {
+      alert("მადლობა, ნახვამდის");
+      break;
+    }
+  }
 }
