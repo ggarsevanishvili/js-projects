@@ -40,14 +40,18 @@ while (circle === Infinity) {
     secondNumber = parseFloat(secondOperand);
   }
 
-  if (operator === "+") {
+ if (operator === "+") {
     alert(`${firstNumber} + ${secondNumber} = ${firstNumber + secondNumber}`);
   } else if (operator === "-") {
     alert(`${firstNumber} - ${secondNumber} = ${firstNumber - secondNumber}`);
   } else if (operator === "*") {
     alert(`${firstNumber} * ${secondNumber} = ${firstNumber * secondNumber}`);
   } else if (operator === "/") {
-    alert(`${firstNumber} / ${secondNumber} = ${firstNumber / secondNumber}`);
+    if (secondNumber === 0) {
+      alert(`${firstNumber} / ${secondNumber} = infinity`);
+    } else {
+      alert(`${firstNumber} / ${secondNumber} = ${firstNumber / secondNumber}`);
+    }
   } else if (operator === "%") {
     alert(`${firstNumber} % ${secondNumber} = ${firstNumber % secondNumber}`);
   } else if (operator === "**") {
