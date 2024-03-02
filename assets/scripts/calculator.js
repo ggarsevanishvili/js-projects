@@ -57,7 +57,7 @@ while (circle === Infinity) {
   } else if (operator === "**") {
     alert(`${firstNumber} ** ${secondNumber} = ${firstNumber ** secondNumber}`);
   } else {
-    alert("ფაფიქსირდა გაუთვალისწინებელი შემთხვევა!");
+    alert("დაფიქსირდა გაუთვალისწინებელი შემთხვევა!");
   }
 
   loop = confirm("გსურთ ხელახლა ცდა?");
